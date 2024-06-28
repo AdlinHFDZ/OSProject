@@ -80,62 +80,6 @@ Answer: 3.14 GHz.
 Answer: Node.js process (PID 573), consuming 3.3% CPU.
 
 
-## Running your own container instance.
-
-1. At the terminal, run a linux instance. By typing the following command. 
-```
-docker pull debian
-docker run --detach -it debian
-```
-2. This will run the debian container. To check if the debian container is running, type
-```bash
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
-f65be1987f84   debian    "bash"    4 minutes ago   Up 4 minutes             romantic_jackson
-```
-
-3. Keep note of the name used by your container, this is usually given random names unless you specify your own name. Now run a bash command on the container. Make sure you use the name of your container instead of the one shown here. 
-```bash
-docker exec -i -t romantic_jackson /bin/bash
-```
-
-4. Create a file on the container. First you must make sure you are in the bash command prompt of the container. The container is new, and does not have any software other than the debian OS. To create a new file, you will need an editor installed. In the bash shell of the container, run the package manager apt-get to install nano text editor. 
-
-```bash
-root@f65be1987f84:~# apt-get update      
-
-root@f65be1987f84:~# apt-get install nano
-
-root@f65be1987f84:~# cd /root
-
-root@f65be1987f84:~# nano helloworld.txt
-```
-
-5. Edit your helloworld.txt, create your messsage and save by typing ctrl-X. Once saved, explore using the container to see where the file is located. Then exit the shell, by typing **exit**.
-
-6. Stop the container and run **docker ps -a**, and restart the container again. Is your file in the container still available?
-```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
-f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago             romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker restart romantic_jackson
-```
-
-7. Stop the container and delete the container. What happened to your helloworld.txt?
-
-```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ docker stop romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
-CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                        PORTS     NAMES
-f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago             romantic_jackson
-
-@joeynor ➜ /workspaces/OSProject (main) $ docker rm romantic_jackson
-```
-
 ***Questions:***
 
 1. Are files in the container persistent. Why not?. ***(1 mark)*** answer: Files inside a container are not persistent by default because containers are designed to be ephemeral and stateless. When a container is stopped or deleted, any changes made inside the container, including created files like helloworld.txt, are lost..
