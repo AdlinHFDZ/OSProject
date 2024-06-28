@@ -7,23 +7,10 @@ Team Mates:
 1. ADLIN HAFIDZ BIN JAMAL SHUPARDI (2112133)
 
 
-## Rules
-1. You are allowed to have **3 group** members. *Exception* is allowed **IFF (if and only if)** you are allowed to have 4 group members if you are a **multinational** or a **multigender** group. 
-2. When you complete the project, make sure to submit the repository link of your cloned project. Make sure all the files are as what you aspect in your repository. 
-3. Answer all questions in the **README.md**, in your own repository. Either use the online VSCode, terminal or github to edit. Answers are expected where you see __Fill answer here__.
-4. Learn how to use markdown. https://www.w3schools.io/file/markdown-introduction/
-
-## Forking this OS project repository
-1. First thing you need in doing this project is to have a github account. Make sure to sign up at https://www.github.com
-2. The second thing you need is to fork the OS project repository in your own github account. 
-
-    1. Go to https://github.com/joeynor/OSProject and click fork to copy the project into your own repository
-    2. Make sure that the new fork is now in your own repository
-
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __Fill answer here__.
-2. How many files and folders are in this repository. ***(1 mark)*** __Fill answer here__.
+1. What is the link of the fork OSProject in your repository. ***(1 mark)*** (https://github.com/AdlinHFDZ/OSProject.git).
+2. How many files and folders are in this repository. ***(1 mark)*** 6 file and 1 folder.
 
 
 ## Exploring github codespaces
@@ -55,9 +42,10 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Fill answer here__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __Fill answer here__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** Ubuntu.
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** 4-core, 8 GB RAM, 32 GB disk.
+8-core, 16 GB RAM, 64 GB disk​.
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** Committing and syncing your current work in source control is essential to ensure that all changes are saved and backed up. It allows for collaboration with team members by sharing the latest codebase, helps track the history of changes, and prevents data loss..
 
 ## Exploring the Terminal
 
@@ -74,16 +62,44 @@ codespace
 
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
-1. Run the command **pwd** . ***(1 mark)*** __Fill answer here__.
-2. Run the command **cat /etc/passwd** . ***(1 mark)*** __Fill answer here__.
-3. Run the command **df** . ***(1 mark)*** __Fill answer here__.
-4. Run the command **du** . ***(1 mark)*** __Fill answer here__.
-5. Run the command **ls** . ***(1 mark)*** __Fill answer here__.
-6. Run the command **ls -asl** . ***(1 mark)*** __Fill answer here__.
-7. Run the command **free -h** . ***(1 mark)*** __Fill answer here__.
-8. Run the command **cat /proc/cpuinfo** . ***(1 mark)*** __Fill answer here__.
-9. Run the command **top** and type **q** to quit. ***(1 mark)*** __Fill answer here__.
-10. Run the command **uname -a**. ***(1 mark)*** __Fill answer here__.
+1. Run the command **pwd** . ***(1 mark)***
+
+![pwd](image-1.png)
+
+2. Run the command **cat /etc/passwd** . ***(1 mark)***
+
+![cat /etc/passwd](image-2.png)
+
+3. Run the command **df** . ***(1 mark)***
+
+![df](image-3.png)
+
+4. Run the command **du** . ***(1 mark)***
+
+![du](image.png)
+
+5. Run the command **ls** . ***(1 mark)***
+
+6. Run the command **ls -asl** . ***(1 mark)***
+
+![ls -asl](image-4.png)
+
+7. Run the command **free -h** . ***(1 mark)***
+
+![free -h](image-5.png)
+
+8. Run the command **cat /proc/cpuinfo** . ***(1 mark)***
+
+![cat /proc/cpuinfo](image-6.png)
+
+9. Run the command **top** and type **q** to quit. ***(1 mark)***
+
+![top](image-7.png)
+
+10. Run the command **uname -a**. ***(1 mark)***
+
+![uname -a](image-8.png)
+
 11. What is the available free memory in the system. ***(1 mark)*** __Fill answer here__.
 12. What is the available disk space mounted on /workspace. ***(1 mark)*** __Fill answer here__.
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** __Fill answer here__.
