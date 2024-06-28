@@ -56,34 +56,45 @@ Look at the TERMINAL tab. Run the following commands and provide the output here
 
 ![uname -a](image-8.png)
 
+```bash
 11. What is the available free memory in the system? (1 mark)
+
 Answer: 182 MiB.
 
 12. What is the available disk space mounted on /workspace? (1 mark)
+
 Answer: 6.1 GiB.
 
 13. Name the version and hardware architecture of the Linux Virtual environment. (1 mark)
+
 Answer: Ubuntu 22.04.1, x86_64 architecture.
 
 14. What is the difference between ls vs ls -asl? (1 mark)
+
 Answer:
 - `ls`: Lists files and directories in the current directory.
 - `ls -asl`: Provides a detailed listing of all files (including hidden ones) in the current directory, showing their sizes in blocks and additional metadata like permissions and ownership.
 
 15. What is the TLB size of the Virtual CPU? (1 mark)
-Answer: Fill answer here (This part needs to be filled with the actual answer).
-
+Answer: 
 16. What is the CPU speed of the Virtual CPU? (1 mark)
+
 Answer: 3.14 GHz.
 
 17. What is the top running process that consumes the most CPU cycles? (1 mark)
-Answer: Node.js process (PID 573), consuming 3.3% CPU.
 
+Answer: Node.js process (PID 573), consuming 3.3% CPU.
+```
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** answer: Files inside a container are not persistent by default because containers are designed to be ephemeral and stateless. When a container is stopped or deleted, any changes made inside the container, including created files like helloworld.txt, are lost..
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** answer: yes, you can run multiple instances of Debian Linux containers simultaneously..
+1. Are files in the container persistent. Why not?. ***(1 mark)*** 
+
+answer: Files inside a container are not persistent by default because containers are designed to be ephemeral and stateless. When a container is stopped or deleted, any changes made inside the container, including created files like helloworld.txt, are lost..
+
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** 
+
+answer: yes, you can run multiple instances of Debian Linux containers simultaneously..
 
 ***Questions:***
 
@@ -106,7 +117,6 @@ sudo: Ensures that the command runs with superuser (root) privileges, necessary 
 
 
 ![alt text](image-15.png)
-
 
 
 ***Questions:***
