@@ -85,62 +85,44 @@ Answer: Node.js process (PID 573), consuming 3.3% CPU.
 1. Are files in the container persistent. Why not?. ***(1 mark)*** answer: Files inside a container are not persistent by default because containers are designed to be ephemeral and stateless. When a container is stopped or deleted, any changes made inside the container, including created files like helloworld.txt, are lost..
 2. Can we run two, or three instances of debian linux? . ***(1 mark)*** answer: yes, you can run multiple instances of Debian Linux containers simultaneously..
 
-## Running your own container with persistent storage
-
-1. In the previous experiment, you might have notice that containers are not persistent. To make storage persistent, you will need to mount them. 
-At the terminal, create a new directory called **myroot**, and run a instance of debian linux and mount myroot to the container. Find out the exact path of my root, and mount it as the root folder in the debian container. 
-2. Create a file in /root on the container, the files should also appear in myroot of your host VM.
-
-```bash 
-@joeynor ➜ /workspaces/OSProject (main) $ mkdir myroot
-@joeynor ➜ /workspaces/OSProject (main) $ cd myroot/
-@joeynor ➜ /workspaces/OSProject/myroot (main) $ pwd
-/workspaces/OSProject/myroot
-
-@joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
-```
-
 ***Questions:***
 
 1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** 
-![alt text](image-9.png).
-2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
-```bash
-//use sudo and chown
-sudo chown -R codespace:codespace myroot
 
+![alt text](image-9.png).
+
+2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
+
+![alt text](image-12.png)
+```bash
+answer:
+Changing Ownership (chown command):
+
+sudo chown codespace:codespace helloworld.txt: This command changes the ownership of helloworld.txt to the user codespace and the group codespace.
+sudo: Ensures that the command runs with superuser (root) privileges, necessary for changing file ownership.
 ```
-*** __Fill answer here__.***
 
 ## You are on your own, create your own static webpage
 
-1. Create a directory called webpage in your host machine
-2. Inside the directory, create a page index.html, with any content you would like
-3. Then, run the apache webserver and mount the webpage directory to it. Hint:
-```bash
-## the -p 8080:80 flag points the host port 8080 to the container port 80
 
-docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ -p 8080:80 httpd
-```
-
-4. If it works, codespace will trigger a port assignment and provide a URL for you to access your webpage like the one below.
-
- <img src="./images/websitelink.png" width="70%">
+![alt text](image-15.png)
 
 
-5. You can also see the Port in the **PORTS** tab, next to the terminal tab.
-
-6. You can then access your website by adding an index.html towards the end of your url link, like the one below. 
-
- <img src="./images/helloworldweb.png" width="70%">
 
 ***Questions:***
 
 1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** 
+
 ![alt text](image-10.png).
-2. What port is the apache web server running. ***(1 mark)***.
+
+
+2. What port is the apache web server running. ***(1 mark)***
+
+![alt text](image-14.png).
+
+
 3. What port is open for http protocol on the host machine? ***(1 mark)***
-![alt text](image-11.png).
+![alt text](image-13.png).
 
 ## Create SUB Networks
 
@@ -159,11 +141,71 @@ docker run -itd --net rednet --name c2 busybox sh
 ```
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Fill answer here__.
-2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Fill answer here__.
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Fill answer here__.
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
-5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
+1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** 
+```bash
+answer:
+Busybox: Busybox is a lightweight Linux distribution that provides a collection of common UNIX utilities in a single executable file. It is often used in Docker containers where minimalism and efficiency are prioritized.
+--name switch: This option allows you to specify a name for the container when you create it using docker run. It provides a human-readable identifier that can be used instead of the container ID.
+```
+
+2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** 
+
+![alt text](image-16.png).
+
+
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** 
+```bash
+    {
+        "Name": "rednet",
+        "Id": "e1bb513a8957cae0227ed1465200a6bc88253da299a6b9e3b93fe7b7bcaf3592",
+        "Created": "2024-06-28T15:06:37.206360576Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.19.0.0/16",
+                    "Gateway": "172.19.0.1"
+                }
+            ]
+        },
+```
+```bash
+    {
+        "Name": "bluenet",
+        "Id": "4ba7b80edb000e4731a61edaba4070ea15622353802c594b20f669123980ef3d",
+        "Created": "2024-06-28T15:03:49.729432232Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+```
+
+4. What is the network address for the running container c1 and c2? ***(1 mark)*** 
+```bash
+@AdlinHFDZ ➜ /workspaces/OSProject/myroot (main) $ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' c1
+172.18.0.2172.20.0.2
+@AdlinHFDZ ➜ /workspaces/OSProject/myroot (main) $ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' c2
+172.20.0.3172.19.0.2.
+```
+
+5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** 
+
+no, i wont able to ping:
+
+![alt text](image-18.png).
 
 ## Bridging two SUB Networks
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
@@ -175,8 +217,15 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)*** 
+
+yes! i be able to ping now>
+
+![alt text](image-17.png).
+
+2. What is different from the previous ping in the section above? ***(1 mark)*** 
+
+it say bad ping, now the ping can be ping.
 
 ## Intermediate Level (10 marks bonus)
 
