@@ -13,50 +13,6 @@ Team Mates:
 2. How many files and folders are in this repository. ***(1 mark)*** 6 file and 1 folder.
 
 
-## Exploring github codespaces
-
-1. The next thing that we will be doing is exploring codespaces. First of all, read about codespaces https://docs.github.com/en/codespaces/overview#what-is-a-codespace
-2. Then go to the link https://github.com/codespaces and we shall start a new codespace.  
-3. Click on ***New codespace***.
-4. Choose your own OSProject repository to start your codespace.
-
- <img src="./images/newcodespace.png" width="50%">
-
-5. Once you have created you codespace, you will see the following. You might already be familiar with this, since it will look similar to VSCode. 
-
- <img src="./images/UIwebvscode.png" width="70%">
-
-6. You will see the [README file](./README.md) file. One is a preview of how it looks like on the web, and the other is the editing view in markdown language. 
-7. Edit the [README file](./README.md). Make sure you have your group details correct, ie, group name, section and team members along with their matric IDs. 
-8. Once you have finish editing, click File->Save or ***ctrl-s*** to save it. 
-9. After saving, you will notice an M or U next to your file. You will need to commit any changes, whenever you make changes so that it is uploaded to the github repository. 
-
- <img src="./images/SourceControlUI.png" width="70%">
-
-10. Click on the source control, hint: its on the left side panel, and it will list down the files that have been modified or updated. Click on commit. It will then ask you "Would you like to stage all your changes and commit them directly?" Just say yes, and a new tab will appear. Type a message to log what you have done, and click on the check mark. 
-
- <img src="./images/CommittingUI.png" width="70%">
-
-11. After that, sync the changes to the main repository. 
-12. Make sure to commit and sync your files to the main repository, or else, your work will be lost since it is not saved into the main repository when you submit your project.
-
-***Questions:***
-
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** Ubuntu.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** 4-core, 8 GB RAM, 32 GB disk.
-8-core, 16 GB RAM, 64 GB disk​.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** Committing and syncing your current work in source control is essential to ensure that all changes are saved and backed up. It allows for collaboration with team members by sharing the latest codebase, helps track the history of changes, and prevents data loss..
-
-## Exploring the Terminal
-
-1. Look at the TERMINAL tab. Explore and run commands according to the questions below. 
-2. You can include your answers as images, or cut and paste the output here. If you are cutting and pasting your answers, wrap your answers in the codeblock clause in markdown. For example, if i run the command **whoami** the the output would look like the one below.
-```bash
-@joeynor ➜ /workspaces/OSProject (main) $ whoami 
-codespace
-```
-
-
 
 ***Questions:***
 
@@ -182,8 +138,8 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** answer: Files inside a container are not persistent by default because containers are designed to be ephemeral and stateless. When a container is stopped or deleted, any changes made inside the container, including created files like helloworld.txt, are lost..
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** answer: yes, you can run multiple instances of Debian Linux containers simultaneously..
 
 ## Running your own container with persistent storage
 
@@ -202,7 +158,8 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** 
+![alt text](image-9.png).
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
@@ -235,9 +192,11 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** 
+![alt text](image-10.png).
+2. What port is the apache web server running. ***(1 mark)***.
+3. What port is open for http protocol on the host machine? ***(1 mark)***
+![alt text](image-11.png).
 
 ## Create SUB Networks
 
