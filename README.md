@@ -1,6 +1,6 @@
 # OSProject Running Containers for Application Development
 
-Group Name: OAS
+Group Name: iium OS.
 Section: 4. 
 
 Team Mates:
